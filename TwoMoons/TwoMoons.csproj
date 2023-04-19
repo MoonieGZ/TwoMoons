@@ -7,6 +7,7 @@
     <UserSecretsId>da5ef89a-2e15-4ca9-b2b5-47dbf3d3bd6c</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
+    <BaseOutputPath>F:\VSProjects\2022Projects\TwoMoons\bin</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
