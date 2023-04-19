@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 
 namespace TwoMoons.Settings
 {
@@ -19,7 +19,7 @@ namespace TwoMoons.Settings
                 using var httpClient = new HttpClient();
                 var s = await httpClient.GetStringAsync(
                     "https://raw.githubusercontent.com/MoonieGZ/TwoMoons/main/CHANGELOG.md");
-                Version = s.Split("Version: ")[1];
+                Version = s.Split("Version: v")[1];
             }
         }
     }
