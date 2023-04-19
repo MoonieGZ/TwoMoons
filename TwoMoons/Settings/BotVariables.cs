@@ -18,8 +18,8 @@ namespace TwoMoons.Settings
             {
                 using var httpClient = new HttpClient();
                 var s = await httpClient.GetStringAsync(
-                    "https://raw.githubusercontent.com/MoonieGZ/FelicityOne/main/CHANGELOG.md");
-                Version = s.Split("## [")[1].Split("]")[0];
+                    "https://raw.githubusercontent.com/MoonieGZ/TwoMoons/main/CHANGELOG.md");
+                Version = s.Split("Version: ")[1];
             }
         }
     }
