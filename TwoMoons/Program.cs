@@ -1,3 +1,5 @@
+using Serilog;
+using Serilog.Events;
 using TwoMoons.Settings;
 
 namespace TwoMoons;
@@ -8,14 +10,14 @@ public class Program
     {
         try
         {
-            // Log.Logger = new LoggerConfiguration()
-            //     .Enrich.FromLogContext()
-            //     .MinimumLevel.Debug()
-            //     .MinimumLevel.Override("Quartz", LogEventLevel.Information)
-            //     .WriteTo.Console()
-            //     .WriteTo.File("Logs/latest-.log", rollingInterval: RollingInterval.Day,
-            //         retainedFileCountLimit: 14)
-            //     .CreateLogger();
+            Log.Logger = new LoggerConfiguration()
+                .Enrich.FromLogContext()
+                .MinimumLevel.Debug()
+                .MinimumLevel.Override("Quartz", LogEventLevel.Information)
+                .WriteTo.Console()
+                .WriteTo.File("Logs/latest-.log", rollingInterval: RollingInterval.Day,
+                    retainedFileCountLimit: 14)
+                .CreateLogger();
 
             await BotVariables.Initialize();
 
@@ -39,11 +41,11 @@ public class Program
         }
         catch (Exception exception)
         {
-            // Log.Fatal(exception, "Host terminated unexpectedly");
+            Log.Fatal(exception, "Host terminated unexpectedly");
         }
         finally
         {
-            // Log.CloseAndFlush();
+            await Log.CloseAndFlushAsync();
         }
     }
 }
