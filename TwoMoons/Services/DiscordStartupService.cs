@@ -153,17 +153,6 @@ public class DiscordStartupService : BackgroundService
         var errorEmbed = Embeds.MakeErrorEmbed();
         errorEmbed.Title = "Failed to execute command.";
 
-        if (result.ErrorReason.StartsWith("Refresh token for membership id"))
-        {
-            errorEmbed.Description =
-                "Your membership info has expired, this can happen when you haven't run any commands for a while.\n" +
-                "To fix it, please run </user register:992144588334714963> and re-run the command.";
-
-            await arg2.Interaction.FollowupAsync(embed: errorEmbed.Build());
-
-            return;
-        }
-
         errorEmbed.Description = BotVariables.ErrorMessage;
 
         var debugOptions = new List<string>();
@@ -232,7 +221,7 @@ public class DiscordStartupService : BackgroundService
 
     private async Task HandleJoin(SocketGuildUser arg)
     {
-        // ignored
+        // ignored  
     }
 
     private async Task HandleLeft(SocketGuild arg1, SocketUser arg2)

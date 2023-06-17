@@ -4,7 +4,6 @@ on:
   pull_request:
     types: [ opened ]
 
-  # Optionally you can use `workflow_dispatch` to run Changelog CI Manually
   workflow_dispatch:
     inputs:
       release_version:
@@ -16,7 +15,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checks-out your repository
       - uses: actions/checkout@v2
 
       - name: Run Changelog CI
