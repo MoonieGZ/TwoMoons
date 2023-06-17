@@ -55,6 +55,7 @@ public class Program
                 .AddLogging(options => options.AddSerilog(dispose: true))
                 .AddSingleton<LogAdapter<BaseSocketClient>>();
 
+            /*
             builder.Services.AddMvc();
             builder.Services
                 .AddControllers(options => { options.EnableEndpointRouting = false; })
@@ -64,8 +65,6 @@ public class Program
                 c.AddPolicy("AllowOrigin",
                     options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             });
-
-            var app = builder.Build();
 
             app.UseRouting();
 
@@ -79,8 +78,9 @@ public class Program
             app.UseHttpsRedirection();
             if (!app.Environment.IsDevelopment())
                 app.UseHsts();
+            */
 
-            await app.RunAsync();
+            await builder.Build().RunAsync();
         }
         catch (Exception exception)
         {
